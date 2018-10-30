@@ -12,11 +12,11 @@
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
 
     <% unless resource.errors.empty? %>
-    　<script type= "text/javascript">
-　    　<% resource.errors.full_messages.each do |msg| %>
-　　     toastr.error('<%= msg %>');
-　　    <% end %>
-　    </script>
+      <script type= "text/javascript">
+        <% resource.errors.full_messages.each do |msg| %>
+          toastr.error('<%= msg %>');
+        <% end %>
+      </script>
     <% end %>
 
     <div class="field">
