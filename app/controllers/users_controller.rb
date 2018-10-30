@@ -21,5 +21,6 @@ class UsersController < ApplicationController
 
   def set_user
     @user = User.find(params[:id])
+    redirect_to charts_top_path unless @user.id == current_user.id
   end
 end
