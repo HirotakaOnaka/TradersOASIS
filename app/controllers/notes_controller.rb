@@ -1,31 +1,24 @@
 class NotesController < ApplicationController
   before_action :set_note, only:[:show, :edit, :update, :destroy]
-  before_action :authenticate_user!, only:[:new, :index, :edit, :show, :destroy]
+  before_action :authenticate_user!
+  before_action :set_user, only: [:edit, :destroy]
 
-  # GET /notes
-  # GET /notes.json
   def index
     @notes = Note.all
     @search = Note.ransack(params[:q])
     @notes = @search.result.order(created_at: :desc).page(params[:page]).per(10)
   end
 
-  # GET /notes/1
-  # GET /notes/1.json
   def show
   end
 
-  # GET /notes/new
   def new
     @note = Note.new
   end
 
-  # GET /notes/1/edit
   def edit
   end
 
-  # POST /notes
-  # POST /notes.json
   def create
     @note = Note.new(note_params)
     @note.user_id = current_user.id
@@ -46,8 +39,6 @@ class NotesController < ApplicationController
     render :new if @note.invalid?
   end
 
-  # PATCH/PUT /notes/1
-  # PATCH/PUT /notes/1.json
   def update
     respond_to do |format|
       if @note.update(note_params)
@@ -60,8 +51,6 @@ class NotesController < ApplicationController
     end
   end
 
-  # DELETE /notes/1
-  # DELETE /notes/1.json
   def destroy
     @note.destroy
     respond_to do |format|
@@ -71,27 +60,30 @@ class NotesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_note
-      @note = Note.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def note_params
-      params.require(:note).permit(
-        :trading_method, 
-        {:pair => []}, 
-        :lot, 
-        :entry_rate, 
-        :entry_date, 
-        :contract_rate, 
-        :contract_date, 
-        :pips, 
-        :comment, 
-        :image1, 
-        :image2, 
-        :score, 
-        :order
-        )
-    end
+  def set_note
+    @note = Note.find(params[:id])
+  end
+
+  def note_params
+    params.require(:note).permit(
+      :trading_method, 
+      {:pair => []}, 
+      :lot, 
+      :entry_rate, 
+      :entry_date, 
+      :contract_rate, 
+      :contract_date, 
+      :pips, 
+      :comment, 
+      :image1, 
+      :image2, 
+      :score, 
+      :order
+    )
+  end
+
+  def set_user
+    redirect_to notes_path unless @note.user_id == current_user.id
+  end
 end

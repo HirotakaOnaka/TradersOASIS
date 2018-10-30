@@ -1,9 +1,8 @@
 class TradingMethodsController < ApplicationController
   before_action :set_trading_method, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!, only: [:new, :index, :edit, :show, :destroy]
+  before_action :authenticate_user!
+  before_action :set_user, only: [:edit, :destroy]
 
-  # GET /trading_methods
-  # GET /trading_methods.json
   def index
     if user_signed_in?
       @favorite_hash = Favorite.where(user_id:current_user.id).pluck(:id,:trading_method_id).to_h
@@ -13,8 +12,6 @@ class TradingMethodsController < ApplicationController
     @trading_methods = @search.result.order(created_at: :desc).page(params[:page]).per(5)
   end
 
-  # GET /trading_methods/1
-  # GET /trading_methods/1.json
   def show
     @trading_method = TradingMethod.find_by(id: params[:id])
     @user = @trading_method.user
@@ -26,7 +23,6 @@ class TradingMethodsController < ApplicationController
     @useful_hash = Useful.where(user_id:current_user.id).pluck(:id,:trading_method_id).to_h
   end
 
-  # GET /trading_methods/new
   def new
     if params[:back]
       @trading_method = TradingMethod.new(trading_method_params)
@@ -36,12 +32,9 @@ class TradingMethodsController < ApplicationController
     
   end
 
-  # GET /trading_methods/1/edit
   def edit
   end
 
-  # POST /trading_methods
-  # POST /trading_methods.json
   def create
     @trading_method = TradingMethod.new(trading_method_params)
     @trading_method.user_id = current_user.id
@@ -57,13 +50,8 @@ class TradingMethodsController < ApplicationController
   end
   
   def confirm
-#    @trading_method = TradingMethod.new(trading_method_params)
-#    @trading_method.user_id = current_user.id
-#    render :new if @trading_method.invalid?
   end
 
-  # PATCH/PUT /trading_methods/1
-  # PATCH/PUT /trading_methods/1.json
   def update
     respond_to do |format|
       if @trading_method.update(trading_method_params)
@@ -76,8 +64,6 @@ class TradingMethodsController < ApplicationController
     end
   end
 
-  # DELETE /trading_methods/1
-  # DELETE /trading_methods/1.json
   def destroy
     @trading_method.destroy
     respond_to do |format|
@@ -87,33 +73,36 @@ class TradingMethodsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_trading_method
-      @trading_method = TradingMethod.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def trading_method_params
-      params.require(:trading_method).permit(
-        :title, 
-        :introduction, 
-        {:style => []}, 
-        {:pair => []}, 
-        {:indicator => []}, 
-        {:market => []}, 
-        {:chart => []}, 
-        :content1, 
-        :content2, 
-        :content3, 
-        :image1, 
-        :image2, 
-        :image3, 
-        :summery, 
-        :user_id, 
-        :favorites_count, 
-        :usefuls_count, 
-        :unusefuls_count
-        )
-    end
+  def set_trading_method
+    @trading_method = TradingMethod.find(params[:id])
+  end
+
+  def trading_method_params
+    params.require(:trading_method).permit(
+      :title, 
+      :introduction, 
+      {:style => []}, 
+      {:pair => []}, 
+      {:indicator => []}, 
+      {:market => []}, 
+      {:chart => []}, 
+      :content1, 
+      :content2, 
+      :content3, 
+      :image1, 
+      :image2, 
+      :image3, 
+      :summery, 
+      :user_id, 
+      :favorites_count, 
+      :usefuls_count, 
+      :unusefuls_count
+    )
+  end
+
+  def set_user
+    redirect_to trading_methods_path unless @trading_method.user_id == current_user.id
+  end
 
 end

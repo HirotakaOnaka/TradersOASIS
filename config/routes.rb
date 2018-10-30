@@ -4,11 +4,7 @@ Rails.application.routes.draw do
   get 'charts/top'
   get 'charts/index'
 
-  devise_for :users#, :controllers => {
-#    :sessions      => "users/sessions",
-#    :registrations => "users/registrations"
-#  }
-
+  devise_for :users
   
   resources :users, :only => [:index, :show] do
     member do
