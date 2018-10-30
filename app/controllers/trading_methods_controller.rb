@@ -29,7 +29,6 @@ class TradingMethodsController < ApplicationController
     else
       @trading_method = TradingMethod.new
     end
-    
   end
 
   def edit
@@ -48,7 +47,7 @@ class TradingMethodsController < ApplicationController
       end
     end
   end
-  
+
   def confirm
   end
 
@@ -80,24 +79,11 @@ class TradingMethodsController < ApplicationController
 
   def trading_method_params
     params.require(:trading_method).permit(
-      :title, 
-      :introduction, 
-      {:style => []}, 
-      {:pair => []}, 
-      {:indicator => []}, 
-      {:market => []}, 
-      {:chart => []}, 
-      :content1, 
-      :content2, 
-      :content3, 
-      :image1, 
-      :image2, 
-      :image3, 
-      :summery, 
-      :user_id, 
-      :favorites_count, 
-      :usefuls_count, 
-      :unusefuls_count
+      :title, :introduction, {:style => []}, {:pair => []},
+      {:indicator => []}, {:market => []}, {:chart => []},
+      :content1, :content2, :content3,
+      :image1, :image2, :image3, :summery, :user_id,
+      :favorites_count, :usefuls_count, :unusefuls_count
     )
   end
 

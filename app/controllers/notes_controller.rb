@@ -1,5 +1,5 @@
 class NotesController < ApplicationController
-  before_action :set_note, only:[:show, :edit, :update, :destroy]
+  before_action :set_note, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!
   before_action :set_user, only: [:show, :edit, :destroy]
 
@@ -67,19 +67,9 @@ class NotesController < ApplicationController
 
   def note_params
     params.require(:note).permit(
-      :trading_method, 
-      {:pair => []}, 
-      :lot, 
-      :entry_rate, 
-      :entry_date, 
-      :contract_rate, 
-      :contract_date, 
-      :pips, 
-      :comment, 
-      :image1, 
-      :image2, 
-      :score, 
-      :order
+      :trading_method, { :pair => [] },
+      :lot, :entry_rate, :entry_date, :contract_rate,
+      :contract_date, :pips, :comment, :image1, :image2, :score, :order
     )
   end
 
