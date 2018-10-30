@@ -58,6 +58,7 @@
 .form-control {
   border: 0;
   border-bottom: 1px solid #a1a2a3;
+  height: 100%;
 }
 .form-control,
 .form-control:focus,
