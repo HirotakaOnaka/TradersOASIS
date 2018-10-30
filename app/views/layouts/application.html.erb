@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>TradersOasis</title>
+    <%= csrf_meta_tags %>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
+    <link href="https://fonts.googleapis.com/css?family=Oswald:700" rel='stylesheet' type='text/css'>
+  </head>
+
+  <body id="page-top" data-turbolinks="false">
+
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+      <div class="container">
+        <% if user_signed_in? %>
+          <%= link_to "Trader's OASIS", charts_top_path, class:"navbar-brand js-scroll-trigger" %>
+        <% else %>
+          <%= link_to "Trader's OASIS", root_path, class:"navbar-brand js-scroll-trigger" %>
+        <% end %>
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+          <% if user_signed_in? %>
+            <li class="nav-item"><%= link_to "Chart", charts_top_path, class:"nav-link js-scroll-trigger" %></li>
+            <li class="nav-item"><%= link_to "Trading Methods", trading_methods_path, class:"nav-link js-scroll-trigger" %></li>
+            <li class="nav-item"><%= link_to "Your Trading Notes", notes_path, class:"nav-link js-scroll-trigger" %></li>
+            <li class="nav-item"><%= link_to image_tag("user-icon.png", width: '28'), user_path(current_user.id), class:"nav-link js-scroll-trigger" %></li>
+            <li class="nav-item"><%= link_to "log out", destroy_user_session_path, method: :delete, class:"nav-link js-scroll-trigger" %></li>
+          <% else %>
+            <li class="nav-item"><%= link_to "新規登録", new_user_registration_path, class:"nav-link js-scroll-trigger" %></li>
+            <li class="nav-item"><%= link_to "ログイン", new_user_session_path, class:"nav-link js-scroll-trigger" %></li>
+          <% end %>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    
+    <%= yield %>
+
+    <% flash.each do |type, msg| %>
+      <% type = 'info' if type == 'notice' %>
+      <% type = 'error' if type == 'alert' %>
+      <script>
+        toastr['<%= type %>']('<%= msg %>');
+      </script>
+    <% end %>
+
+  </body>
+</html>

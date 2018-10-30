@@ -1,0 +1,28 @@
+.field{
+  color:#a1a2a3
+}
+.field label{
+  color:#fff;
+  font-size: 14px;
+  padding-top: 10px;
+}
+.field ul li{
+  list-style: none;
+}
+.field ul{
+  width:100%;
+  padding: 5px 0 0;
+}
+
+.field li{
+  margin: 0 20px 10px 10px;
+}
+
+.flexbox{
+  display: flex;
+  flex-wrap: wrap;
+}
+.ckeditor_layout{
+  padding-top: 5px;
+  padding-bottom: 20px;
+}

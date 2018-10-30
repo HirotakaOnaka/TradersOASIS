@@ -1,0 +1,31 @@
+    <section>
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-4 offset-sm-2 text-center">
+            <%= link_to "All Methods", trading_methods_path, class:"btn-shine-mini" %>
+          </div>
+          <div class="col-sm-4 text-center">
+            <%= link_to "Post New Methods", new_trading_method_path, class:"btn-shine-mini" %>
+          </div>
+          <div class="col-sm-1 text-center">
+            <%= link_to image_tag("heart_red.png"), favorites_user_path(current_user.id), class:"btn-shine-mini" %>
+          </div>
+          <div class="col-sm-1 text-center">
+            <%= link_to image_tag("useful_yellow.png"), usefuls_user_path(current_user.id), class:"btn-shine-mini" %>
+          </div>
+        </div>
+            
+        <div class="row">
+          <div class="col-lg-8 mx-auto text-center">
+            <h2 class="section-heading">New Trading Method</h2>
+            <hr class="blue my-4">
+          </div>
+        </div>
+      </div>
+
+    <%= render 'form', trading_method: @trading_method %>
+
+    <div class="text-center">
+      <%= link_to 'Back', trading_methods_path %>
+    </div>
+    </section>

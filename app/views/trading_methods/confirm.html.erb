@@ -1,0 +1,67 @@
+<%= form_with(model: @trading_method, local: true) do |f| %>
+  <%= f.hidden_field :title %>
+  <%= f.hidden_field :introduction %>
+  <%= f.hidden_field :pair %>
+  <%= f.hidden_field :style %>
+  <%= f.hidden_field :indicator %>
+  <%= f.hidden_field :market %>
+  <%= f.hidden_field :chart %>
+  <%= f.hidden_field :content1 %>
+  <%= f.hidden_field :summery %>
+  
+  <div class="field">
+    <%= @trading_method.title %>
+  </div>
+
+  <div class="field">
+    <%= @trading_method.introduction %>
+  </div>
+
+  <div class="field">通貨ペア
+    <%= @trading_method.pair.gsub!(/[\[\]\"]/, "") %>
+  </div>
+
+  <div class="field">取引スタイル
+    <%= @trading_method.style.gsub!(/[\[\]\"]/, "") %>
+  </div>
+
+  <div class="field">分析手法
+    <%= @trading_method.indicator.gsub!(/[\[\]\"]/, "") %>
+  </div>
+
+  <div class="field">取引市場
+    <%= @trading_method.market.gsub!(/[\[\]\"]/, "") %>
+  </div>
+
+  <div class="field">時間足
+    <%= @trading_method.chart.gsub!(/[\[\]\"]/, "") %>
+  </div>
+
+  <div class="field">
+    <%== @trading_method.content1 %>
+  </div>
+
+  <div class="field">
+    <%= @trading_method.summery %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "投稿" %>
+  </div>
+
+<% end %>
+
+<%= form_with(model: @trading_method, url: new_trading_method_path, local:true, method:'get') do |f| %>
+  <%= f.hidden_field :title %>
+  <%= f.hidden_field :introduction %>
+  <%= f.hidden_field :pair %>
+  <%= f.hidden_field :style %>
+  <%= f.hidden_field :indicator %>
+  <%= f.hidden_field :market %>
+  <%= f.hidden_field :chart %>
+  <%= f.hidden_field :content1 %>
+  <%= f.hidden_field :summery %>
+    <div>
+      <%= f.submit "もどる", name: 'back' %>
+    </div>
+<% end %>

@@ -1,0 +1,53 @@
+<section>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8 mx-auto text-center">
+      <h2 class="section-heading">Sign up</h2>
+      <hr class="blue my-4">
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="offset-md-3 col-md-6">
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+
+    <% unless resource.errors.empty? %>
+    　<script type= "text/javascript">
+　    　<% resource.errors.full_messages.each do |msg| %>
+　　     toastr.error('<%= msg %>');
+　　    <% end %>
+　    </script>
+    <% end %>
+
+    <div class="field">
+      <%= f.label :name %><br />
+      <%= f.text_field :name, class: "form-control", autofocus: true, autocomplete: "name" %>
+    </div>
+
+    <div class="field">
+      <%= f.label :email %><br />
+      <%= f.email_field :email, class: "form-control", autocomplete: "email" %>
+    </div>
+
+    <div class="field">
+      <%= f.label :password %>
+      <% if @minimum_password_length %>
+      <em>(<%= @minimum_password_length %> characters minimum)</em>
+      <% end %><br />
+      <%= f.password_field :password, class: "form-control", autocomplete: "new-password" %>
+    </div>
+
+    <div class="field">
+      <%= f.label :password_confirmation %><br />
+      <%= f.password_field :password_confirmation, class: "form-control", autocomplete: "new-password" %>
+    </div>
+
+    <div class="form-group">
+      <%= f.submit "Sign up", class:"btn-shine"%>
+    </div>
+    <% end %>
+    <%= render "devise/shared/links" %>
+    </div>
+  </div>
+</div>
+</section>

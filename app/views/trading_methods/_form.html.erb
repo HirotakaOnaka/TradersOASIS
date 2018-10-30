@@ -1,0 +1,88 @@
+<div class="container mt-5">
+  <div class="row">
+    <div class="offset-md-1 col-md-10">
+      <%= form_with(model: @trading_method, local: true, class:"mt-4 mt-md-0") do |form|%>
+        <% if trading_method.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(trading_method.errors.count, "error") %> prohibited this trading_method from being saved:</h2>
+          <ul>
+            <% trading_method.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+        <% end %>
+
+        <div class="form-group">
+          <%= form.label :title %>
+          <%= form.text_field :title, class: "form-control", id: :trading_method_title %>
+        </div>
+        <div class="form-group">
+          <%= form.label :introduction %>
+          <%= form.text_area :introduction, class: "form-control", id: :trading_method_introduction %>
+        </div>
+        <div class="field">
+          <%= form.label :pair %>
+          <ul class="box flexbox" >
+            <% %w(USD/JPY EUR/USD EUR/JPY GBP/JPY GBP/USD EUR/GBP AUD/JPY AUD/USD EUR/GBP NZD/JPY NZD/USD).each.with_index do |pair,i| %>
+            <li class="flexbox__item"><%= form.check_box :pair, {multiple: true}, pair, nil %> <%= pair %></li>
+            <% end %>
+          </ul>
+        </div>
+
+        <div class="field">
+          <label for="style">取引スタイル</label>
+          <ul class="box flexbox" >
+            <% %w(スキャルピング デイトレード スイングトレード 長期保有).each.with_index do |style,i| %>
+            <li class="flexbox__item"><%= form.check_box :style, {multiple: true}, style, nil %> <%= style %></li>
+            <% end %>
+          </ul>
+        </div>
+        
+        <div class="field">
+          <label for="indicator">分析手法</label>
+          <ul class="box flexbox" >
+            <% %w(ローソク足 ストキャスティクス RSI RCI MACD ダウ理論 エリオット 移動平均線 ボリンジャーバンド 一目均衡表 ピボット 平均足 フィボナッチ パラボリック 高値安値 トレンドライン チャネルライン ファンダメンタルズ その他).each.with_index do |indicator,i| %>
+            <li class="flexbox__item"><%= form.check_box :indicator, {multiple: true}, indicator, nil %> <%= indicator %></li>
+            <% end %>
+          </ul>
+        </div>
+
+        <div class="field">
+          <label for="market">取引市場</label>
+          <ul class="box flexbox" >
+            <% %w(オセアニア市場 東京市場 欧州市場 NY市場).each.with_index do |market,i| %>
+            <li class="flexbox__item"><%= form.check_box :market, {multiple: true}, market, nil %> <%= market %></li>
+            <% end %>
+          </ul>
+        </div>
+
+        <div class="field">
+          <label for="chart">時間足</label>
+          <ul class="box flexbox" >
+            <% %w(1分足 5分足 10分足 15分足 30分足 1時間足 4時間足 日足 週足 月足).each.with_index do |chart,i| %>
+            <li class="flexbox__item"><%= form.check_box :chart, {multiple: true}, chart, nil %> <%= chart %></li>
+            <% end %>
+          </ul>
+        </div>
+
+        <div class="field">
+          <label for="content1">手法詳細</label>
+          <div class="ckeditor_layout">
+          <%= form.cktext_area :content1, id: :trading_method_content1 %>
+          </div>
+        </div>
+        
+        <div class="form-group">
+          <%= form.label :summery %>
+          <%= form.text_area :summery, class: "form-control", id: :trading_method_summery %>
+        </div>
+        <div class="form-group">
+          <%= form.submit 'Post New Method', :class=>"btn-shine" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+

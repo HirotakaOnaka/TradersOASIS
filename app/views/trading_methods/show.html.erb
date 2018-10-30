@@ -1,0 +1,97 @@
+<section>
+<div class="container mt-5">
+  <div class="row">
+
+    <div class="col-lg-8 mx-auto text-center">
+      <h2 class="section-heading"><%= @trading_method.title %></h2>
+      <hr class="blue my-4">
+    </div>
+
+    <div class="offset-md-1 col-md-10 mt-4 mt-md-0">
+      <div class="form-group detail">
+        <label>Title</label>
+        <p class="form-control">
+          <%= @trading_method.title %>
+        </p>
+      </div>
+
+      <div class="form-group detail">
+        <label>Introduction</label>
+        <p class="form-control">
+          <%= @trading_method.introduction %>
+        </p>
+      </div>
+
+      <div class="form-group detail">
+        <label>通貨ペア</label>
+        <p class="form-control">
+          <%= @trading_method.pair %>
+        </p>
+      </div>
+
+      <div class="form-group detail">
+        <label>取引スタイル</label>
+        <p class="form-control">
+          <%= @trading_method.style %>
+        </p>
+      </div>
+
+      <div class="form-group detail">
+        <label>分析手法</label>
+        <p class="form-control">
+          <%= @trading_method.indicator %>
+        </p>
+      </div>
+
+      <div class="form-group detail">
+        <label>取引市場</label>
+        <p class="form-control">
+          <%= @trading_method.market %>
+        </p>
+      </div>
+
+      <div class="form-group detail">
+        <label>時間足</label>
+        <p class="form-control">
+          <%= @trading_method.chart %>
+        </p>
+      </div>
+
+      <div class="form-group detail">
+        <label>手法詳細</label>
+        <div class="form-control">
+          <%== @trading_method.content1 %>
+        </div>
+      </div>
+
+      <div class="form-group detail">
+        <label>Summery</label>
+        <p class="form-control">
+          <%= @trading_method.summery %>
+        </p>
+      </div>
+
+      <div>
+        <% if @trading_method.user_id == current_user.id %>
+          <div class="form-group">
+            <%= link_to "edit", edit_trading_method_path(@trading_method.id), :class=>"btn-shine" %>
+          </div>
+          <% else %>
+            <span id="favorite_<%= @trading_method.id %>">
+              <%= render "favorites/favorite", trading_method: @trading_method %>
+            </span>
+            <span id="useful_<%= @trading_method.id %>">
+              <%= render "usefuls/useful", trading_method: @trading_method %>
+            </span>
+        <% end %>
+      </div>
+
+      <div class="text-center">
+        <%= link_to 'Back', :back %>
+      </div>
+
+    </div>
+
+  </div>
+</div>
+</section>

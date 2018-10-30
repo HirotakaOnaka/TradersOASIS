@@ -1,0 +1,118 @@
+.icon-button {
+  background: none;
+  border: none;
+  display: inline-block;
+}
+
+.btn-shine {
+  margin-top: 20px;
+  background:none;
+  color: #2196F3;
+  text-align: center;
+  display: inline-block;
+  font-size: 16px;
+  font-weight: bold;
+  line-height: 45px;
+  width: 300px;
+  position: relative;
+  text-decoration: none;
+  text-transform: uppercase;
+  border: 1px solid transparent;
+  outline: 1px solid;
+  outline-color: rgba(30, 150, 243, 0.7);
+  outline-offset: 0px;
+  text-shadow: none;
+  transition: all 1.2s cubic-bezier(0.2, 1, 0.2, 1);
+}
+
+.btn-shine:hover {
+  color: #fff;
+  border-color: #2196f3;
+  box-shadow: inset 0 0 20px rgba(255, 255, 255, 0.5), 0 0 20px rgba(255, 255, 255, 0.2);
+  outline-color: transparent;
+  outline-offset: 12px;
+  text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.2);
+  background:rgba(30, 150, 243, 0.7);
+}
+
+.btn-shine-orange {
+  margin-top: 20px;
+  background:none;
+  color: #ff6600;
+  text-align: center;
+  display: inline-block;
+  font-size: 16px;
+  font-weight: bold;
+  line-height: 45px;
+  width: 300px;
+  position: relative;
+  text-decoration: none;
+  text-transform: uppercase;
+  border: 1px solid transparent;
+  outline: 1px solid;
+  outline-color: rgba(255, 102, 0, 0.7);
+  outline-offset: 0px;
+  text-shadow: none;
+  transition: all 1.2s cubic-bezier(0.2, 1, 0.2, 1);
+}
+
+.btn-shine-orange:hover {
+  color: #fff;
+  border-color: #ff6600;
+  box-shadow: inset 0 0 20px rgba(255, 255, 255, 0.5), 0 0 20px rgba(255, 255, 255, 0.2);
+  outline-color: transparent;
+  outline-offset: 12px;
+  text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.2);
+  background:rgba(255, 102, 0, 0.7);
+}
+
+.btn-shine-mini {
+  margin: 0 auto 40px;
+  background:none;
+  color: #2196F3;
+  text-align: center;
+  display: inline-block;
+  font-size: 16px;
+  font-weight: bold;
+  line-height: 45px;
+  width: 100%;
+  position: relative;
+  text-decoration: none;
+  text-transform: uppercase;
+  border-bottom: 1px solid transparent;
+  text-shadow: none;
+  transition: all 1.2s cubic-bezier(0.2, 1, 0.2, 1);
+}
+
+.btn-shine-mini:hover {
+  color: #9FD9F6;
+  border-color: #9FD9F6;
+  text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.2);
+  text-decoration: none;
+}
+
+
+.btn-shine-orange-mini {
+  margin: 0 auto 40px;
+  background:none;
+  color: #FF6600;
+  text-align: center;
+  display: inline-block;
+  font-size: 16px;
+  font-weight: bold;
+  line-height: 45px;
+  width: 100%;
+  position: relative;
+  text-decoration: none;
+  text-transform: uppercase;
+  border-bottom: 1px solid transparent;
+  text-shadow: none;
+  transition: all 1.2s cubic-bezier(0.2, 1, 0.2, 1);
+}
+
+.btn-shine-orange-mini:hover {
+  color: #ffd400;
+  border-color: #ffd400;
+  text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.2);
+  text-decoration: none;
+}

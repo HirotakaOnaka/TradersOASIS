@@ -1,0 +1,26 @@
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm text-center">
+        <%= link_to "All Trading Notes", notes_path, class:"btn-shine-orange-mini" %>
+      </div>
+      <div class="col-sm text-center">
+        <%= link_to "Upload New Notes", new_note_path, class:"btn-shine-orange-mini" %>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-8 mx-auto text-center">
+        <h2 class="section-heading">New Trading Note</h2>
+        <hr class="orange my-4">
+      </div>
+    </div>
+  </div>
+
+  <%= render 'form', note: @note %>
+
+  <div class="text-center">
+    <%= link_to 'Back', notes_path %>
+  </div>
+</section>
+

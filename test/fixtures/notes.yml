@@ -1,0 +1,27 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  contract_rate: 9.99
+  entry_date: 2018-10-06
+  contract_date: 2018-10-06
+  pips: 9.99
+  comment: MyText
+  image1: MyString
+  image2: MyString
+  trading_method: MyString
+  score: MyString
+  lot: 9.99
+  pair: MyString
+
+two:
+  contract_rate: 9.99
+  entry_date: 2018-10-06
+  contract_date: 2018-10-06
+  pips: 9.99
+  comment: MyText
+  image1: MyString
+  image2: MyString
+  trading_method: MyString
+  score: MyString
+  lot: 9.99
+  pair: MyString

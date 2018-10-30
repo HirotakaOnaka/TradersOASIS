@@ -1,0 +1,34 @@
+#mainNav {
+  border-bottom: 1px solid rgba(33, 37, 41, 0.1);
+  background-color: rgba(19, 23, 34, 0.5);
+  font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
+}
+
+#mainNav .navbar-nav > li.nav-item > a.nav-link,
+#mainNav .navbar-nav > li.nav-item > a.nav-link:focus {
+  font-size: .9rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  color: #FFF;
+}
+
+section {
+  padding: 5rem 0;
+}
+
+.text-left{
+  text-align: left;
+}
+
+.fade-2 {
+  border-width: 0 0 1px;
+  border-image: linear-gradient(
+    90deg,
+    hsla(0, 0%, 100%, 0),
+    hsla(0, 0%, 100%, 0.5) 50%,
+    hsla(0, 0%, 100%, 0) 100%) 0 0 100%;
+  border-style: solid;
+  margin-bottom:20px;
+}

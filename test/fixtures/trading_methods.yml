@@ -1,0 +1,41 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  introduction: MyString
+  style: MyString
+  pair: MyString
+  indicator: MyString
+  market: MyString
+  chart: MyString
+  content1: MyText
+  content2: MyText
+  content3: MyText
+  image1: MyString
+  image2: MyString
+  image3: MyString
+  summery: MyText
+  user_id: 1
+  favorites_count: 1
+  usefuls_count: 1
+  unusefuls_count: 1
+
+two:
+  title: MyString
+  introduction: MyString
+  style: MyString
+  pair: MyString
+  indicator: MyString
+  market: MyString
+  chart: MyString
+  content1: MyText
+  content2: MyText
+  content3: MyText
+  image1: MyString
+  image2: MyString
+  image3: MyString
+  summery: MyText
+  user_id: 1
+  favorites_count: 1
+  usefuls_count: 1
+  unusefuls_count: 1

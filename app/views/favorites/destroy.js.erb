@@ -1,0 +1,1 @@
+$("#favorite_<%= @trading_method.id %>").html("<%= j(render 'favorites/favorite', { trading_method:@trading_method, favorites: @favorites }) %>");
