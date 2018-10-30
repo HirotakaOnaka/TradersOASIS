@@ -1,6 +1,6 @@
 class TradingMethodsController < ApplicationController
   before_action :set_trading_method, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!
+  before_action :authenticate_user!, only: [:new, :index, :edit, :show, :destroy]
 
   # GET /trading_methods
   # GET /trading_methods.json

@@ -4,7 +4,7 @@
       <%= form_with(model: @trading_method, local: true, class:"mt-4 mt-md-0") do |form|%>
         <% if trading_method.errors.any? %>
         <div id="error_explanation">
-          <h2><%= pluralize(trading_method.errors.count, "error") %> prohibited this trading_method from being saved:</h2>
+          <h2><%= pluralize(trading_method.errors.count, "つのエラー") %> があります:</h2>
           <ul>
             <% trading_method.errors.full_messages.each do |message| %>
             <li><%= message %></li>
@@ -24,7 +24,7 @@
         <div class="field">
           <%= form.label :pair %>
           <ul class="box flexbox" >
-            <% %w(USD/JPY EUR/USD EUR/JPY GBP/JPY GBP/USD EUR/GBP AUD/JPY AUD/USD EUR/GBP NZD/JPY NZD/USD).each.with_index do |pair,i| %>
+            <% %w(USD/JPY EUR/USD EUR/JPY GBP/JPY GBP/USD AUD/JPY AUD/USD EUR/GBP NZD/JPY NZD/USD).each.with_index do |pair,i| %>
             <li class="flexbox__item"><%= form.check_box :pair, {multiple: true}, pair, nil %> <%= pair %></li>
             <% end %>
           </ul>

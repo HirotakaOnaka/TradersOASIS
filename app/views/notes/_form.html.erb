@@ -4,7 +4,7 @@
       <%= form_with(model: note, local: true, class:"mt-4 mt-md-0") do |form| %>
         <% if note.errors.any? %>
         <div id="error_explanation">
-          <h2><%= pluralize(note.errors.count, "error") %> prohibited this note from being saved:</h2>
+          <h2><%= pluralize(note.errors.count, "つのエラー") %> があります</h2>
           <ul>
             <% note.errors.full_messages.each do |message| %>
             <li><%= message %></li>
@@ -19,7 +19,7 @@
         </div>
 
         <div class="field">
-          <label for="pair">取引ペア</label>
+          <%= form.label :pair %>
           <ul class="box flexbox" >
             <% %w(USD/JPY EUR/USD EUR/JPY GBP/JPY GBP/USD EUR/GBP AUD/JPY AUD/USD EUR/GBP NZD/JPY NZD/USD).each.with_index do |pair,i| %>
             <li class="flexbox__item"><%= form.check_box :pair, {multiple: true}, pair, nil %> <%= pair %></li>
@@ -28,7 +28,7 @@
         </div>
 
         <div class="field">
-          <label for="order">注文</label>
+          <%= form.label :order %>
           <ul class="box flexbox">
             <li class="flexbox__item"><%= form.radio_button :order, "SELL" %> SELL</li>
             <li class="flexbox__item"><%= form.radio_button :order, "BUY" %> BUY</li>
@@ -46,7 +46,7 @@
         </div>
 
         <div class="field">
-          <label for="entry_date">ENTRY DATE</label>
+          <%= form.label :entry_date %>
           <div class="ckeditor_layout">
           <%= form.datetime_select :entry_date, :use_month_numbers => true, id: :note_entry_date %>
           </div>
@@ -58,21 +58,21 @@
         </div>
 
         <div class="field">
-          <label for="contract_date">CONTRACT DATE</label>
+          <%= form.label :contract_date %>
           <div class="ckeditor_layout">
           <%= form.datetime_select :contract_date, :use_month_numbers => true, id: :note_contract_date %>
           </div>
         </div>
 
         <div class="field">
-          <label for="comment">COMMENT</label>
+          <%= form.label :comment %>
           <div class="ckeditor_layout">
           <%= form.cktext_area :comment, id: :note_comment %>
           </div>
         </div>
 
         <div class="field">
-          <label for="score">評価</label>
+          <%= form.label :score %>
           <ul class="box flexbox">
             <li class="flexbox__item"><%= form.radio_button :score, "USEFUL" %> USEFUL</li>
             <li class="flexbox__item"><%= form.radio_button :score, "UNUSEFUL" %> UNUSEFUL</li>
