@@ -52,10 +52,10 @@
                     <p><%= trading_method.introduction %></p>
                 </div>
                 <div class="card-link">
-                     <%= link_to 'Show', trading_method, class:"c-link" %>
+                     <%= link_to 'Show', trading_method, class:"c-link" %>&nbsp;&nbsp;&nbsp;
 
                      <% if trading_method.user_id == current_user.id %>
-                        <%= link_to "edit", edit_trading_method_path(trading_method.id), class:"c-link-edit" %>
+                        <%= link_to "edit", edit_trading_method_path(trading_method.id), class:"c-link-edit" %>&nbsp;&nbsp;&nbsp;
                         <%= link_to "delete", trading_method_path(trading_method.id), method: :delete, data:{confirm: 'Are You Sure？'}, class:"c-link-edit" %>
                      <% else %>
                         <span id="favorite_<%= trading_method.id %>">
