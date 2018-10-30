@@ -18,6 +18,10 @@ section {
   padding: 5rem 0;
 }
 
+.chart {
+  padding: 1rem 0;
+}
+
 .text-left{
   text-align: left;
 }
