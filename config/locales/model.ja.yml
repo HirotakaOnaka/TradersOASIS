@@ -18,7 +18,7 @@ ja:
         pair: "通貨ペア"
         style: "取引スタイル"
         indicator: "分析手法"
-        market: "取引手法"
+        market: "取引市場"
         chart: "時間足"
         content1: "手法詳細"
         summery: "まとめ"
