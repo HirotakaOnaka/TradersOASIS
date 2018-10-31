@@ -4,8 +4,7 @@ class NotesController < ApplicationController
   before_action :set_user, only: [:show, :edit, :destroy]
 
   def index
-    @notes = Note.all
-    @search = Note.ransack(params[:q])
+    @search = current_user.notes.all.ransack(params[:q])
     @notes = @search.result.order(created_at: :desc).page(params[:page]).per(10)
   end
 
@@ -20,8 +19,7 @@ class NotesController < ApplicationController
   end
 
   def create
-    @note = Note.new(note_params)
-    @note.user_id = current_user.id
+    @note = current_user.notes.build(note_params)
     respond_to do |format|
       if @note.save
         format.html { redirect_to @note, notice: 'Note was successfully created.' }
@@ -31,12 +29,6 @@ class NotesController < ApplicationController
         format.json { render json: @note.errors, status: :unprocessable_entity }
       end
     end
-  end
-
-  def confirm
-    @note = Note.new(post_params)
-    @note.user_id = current_user.id
-    render :new if @note.invalid?
   end
 
   def update
