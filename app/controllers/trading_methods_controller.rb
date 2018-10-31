@@ -35,8 +35,7 @@ class TradingMethodsController < ApplicationController
   end
 
   def create
-    @trading_method = TradingMethod.new(trading_method_params)
-    @trading_method.user_id = current_user.id
+    @trading_method = current_user.trading_methods.build(trading_method_params)
     respond_to do |format|
       if @trading_method.save
         format.html { redirect_to @trading_method, notice: 'Trading method was successfully created.' }
@@ -46,9 +45,6 @@ class TradingMethodsController < ApplicationController
         format.json { render json: @trading_method.errors, status: :unprocessable_entity }
       end
     end
-  end
-
-  def confirm
   end
 
   def update
