@@ -77,10 +77,10 @@
             <%= link_to "edit", edit_trading_method_path(@trading_method.id), :class=>"btn-shine" %>
           </div>
           <% else %>
-            <span id="favorite_<%= @trading_method.id %>">
+            <span id="favorite_<%= @trading_method.id %>" class="cp_tooltip_icon">
               <%= render "favorites/favorite", trading_method: @trading_method %>
             </span>
-            <span id="useful_<%= @trading_method.id %>">
+            <span id="useful_<%= @trading_method.id %>" class="cp_tooltip_icon">
               <%= render "usefuls/useful", trading_method: @trading_method %>
             </span>
         <% end %>

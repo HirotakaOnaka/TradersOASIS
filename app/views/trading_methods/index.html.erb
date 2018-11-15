@@ -2,17 +2,17 @@
   <div class="container">
 
     <div class="row">
-      <div class="col-sm-4 offset-sm-2 text-center">
-        <%= link_to "All Methods", trading_methods_path, class:"btn-shine-mini" %>
+      <div class="col-sm-4 offset-sm-2 text-center cp_tooltip">
+        <%= link_to "All Methods", trading_methods_path, class:"btn-shine-mini cp_tooltiptext", :data => {:tooltip=>"公開中の手法一覧"} %>
       </div>
       <div class="col-sm-4 text-center">
-        <%= link_to "Post New Methods", new_trading_method_path, class:"btn-shine-mini" %>
+        <%= link_to "Post New Methods", new_trading_method_path, class:"btn-shine-mini cp_tooltiptext", :data => {:tooltip=>"新規手法を投稿する"} %>
       </div>
       <div class="col-sm-1 text-center">
-        <%= link_to image_tag("heart_red.png"), favorites_user_path(current_user.id), class:"btn-shine-mini" %>
+        <%= link_to image_tag("heart_red.png"), favorites_user_path(current_user.id), class:"btn-shine-mini cp_tooltiptext", :data => {:tooltip=>"試したい手法一覧"} %>
       </div>
       <div class="col-sm-1 text-center">
-        <%= link_to image_tag("useful_yellow.png"), usefuls_user_path(current_user.id), class:"btn-shine-mini" %>
+        <%= link_to image_tag("useful_yellow.png"), usefuls_user_path(current_user.id), class:"btn-shine-mini cp_tooltiptext", :data => {:tooltip=>"使える手法一覧"} %>
       </div>
     </div>
 
@@ -58,10 +58,10 @@
                         <%= link_to "edit", edit_trading_method_path(trading_method.id), class:"c-link-edit" %>&nbsp;&nbsp;&nbsp;
                         <%= link_to "delete", trading_method_path(trading_method.id), method: :delete, data:{confirm: 'Are You Sure？'}, class:"c-link-edit" %>
                      <% else %>
-                        <span id="favorite_<%= trading_method.id %>">
+                        <span id="favorite_<%= trading_method.id %>" class="cp_tooltip_icon">
                           <%= render "favorites/favorite", trading_method: trading_method, favorites: @favorites %>
                         </span>
-                        <span id="useful_<%= trading_method.id %>">
+                        <span id="useful_<%= trading_method.id %>" class="cp_tooltip_icon">
                           <%= render "usefuls/useful", trading_method: trading_method, favorites: @usefuls %>
                         </span>
                      <% end %>

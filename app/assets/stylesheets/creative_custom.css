@@ -5,34 +5,83 @@
   -webkit-transition: all 0.2s;
   transition: all 0.2s;
 }
-
-#mainNav .navbar-nav > li.nav-item > a.nav-link,
-#mainNav .navbar-nav > li.nav-item > a.nav-link:focus {
+#mainNav .navbar-nav>li.nav-item>a.nav-link, #mainNav .navbar-nav>li.nav-item>a.nav-link:focus {
   font-size: .9rem;
   font-weight: 500;
   text-transform: uppercase;
   color: #FFF;
 }
-
 section {
   padding: 5rem 0;
 }
-
 .chart {
   padding: 1rem 0;
 }
-
-.text-left{
+.text-left {
   text-align: left;
 }
-
 .fade-2 {
   border-width: 0 0 1px;
-  border-image: linear-gradient(
-    90deg,
-    hsla(0, 0%, 100%, 0),
-    hsla(0, 0%, 100%, 0.5) 50%,
-    hsla(0, 0%, 100%, 0) 100%) 0 0 100%;
+  border-image: linear-gradient( 90deg, hsla(0, 0%, 100%, 0), hsla(0, 0%, 100%, 0.5) 50%, hsla(0, 0%, 100%, 0) 100%) 0 0 100%;
   border-style: solid;
-  margin-bottom:20px;
+  margin-bottom: 20px;
+}
+.cp_tooltip {
+  display: inline-block;
+}
+.cp_tooltiptext {
+  position: relative;
+  cursor: pointer;
+}
+.cp_tooltiptext::after {
+  position: absolute;
+  transition: all 0.5s ease 0s;
+  opacity: 0;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: block;
+  padding: 0.2em 0.5em;
+  content: attr(data-tooltip);
+  white-space: nowrap;
+  border-radius: 20px;
+}
+.cp_tooltiptext:hover::after {
+  top: 65px;
+  opacity: 1;
+}
+.cp_tooltip_icon {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+}
+.cp_tooltip_icon .cp_tooltiptext_icon {
+  position: absolute;
+  z-index: 1;
+  bottom: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  visibility: hidden;
+  width: auto;
+  white-space: nowrap;
+  padding: 0.3em 0.5em;
+  transition: opacity 1s;
+  text-align: center;
+  opacity: 0;
+  color: #ffffff;
+  border-radius: 6px;
+  background-color: #da3c41;
+}
+.cp_tooltip_icon .cp_tooltiptext_icon::after {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  content: ' ';
+  border: 5px solid transparent;
+  border-top-color: #da3c41;
+}
+.cp_tooltip_icon:hover .cp_tooltiptext_icon {
+  visibility: visible;
+  opacity: 1;
 }
