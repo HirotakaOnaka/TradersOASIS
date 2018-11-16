@@ -1,9 +1,9 @@
 <% if user_signed_in? %>
   <% if @favorite_hash.has_value?(trading_method.id) %>
-    &nbsp;&nbsp;<%= link_to image_tag("heart_red.png"), trading_method_favorite_path(trading_method.id,@favorite_hash.key(trading_method.id)), method: :delete, class:"icon-button", id: "favorite-button", remote: true %>&nbsp;&nbsp;
+    &nbsp;&nbsp;<%= link_to image_tag("heart_red.png", width:'23px'), trading_method_favorite_path(trading_method.id,@favorite_hash.key(trading_method.id)), method: :delete, class:"icon-button", id: "favorite-button", remote: true %>&nbsp;&nbsp;
     <span class="cp_tooltiptext_icon">試したい手法から外す</span>
   <% else %>
-    &nbsp;&nbsp;<%= link_to image_tag("heart_gray.png"), trading_method_favorites_path(trading_method_id: trading_method.id), method: :post, class:"icon-button", id: "favorite-button", remote: true %>&nbsp;&nbsp;
+    &nbsp;&nbsp;<%= link_to image_tag("heart_gray.png", width:'23px'), trading_method_favorites_path(trading_method_id: trading_method.id), method: :post, class:"icon-button", id: "favorite-button", remote: true %>&nbsp;&nbsp;
     <span class="cp_tooltiptext_icon">試したい！</span>
   <% end %>
 <% end %>
