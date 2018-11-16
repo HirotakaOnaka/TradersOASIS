@@ -4,18 +4,19 @@
   font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
   -webkit-transition: all 0.2s;
   transition: all 0.2s;
+  
 }
 #mainNav .navbar-nav>li.nav-item>a.nav-link, #mainNav .navbar-nav>li.nav-item>a.nav-link:focus {
   font-size: .9rem;
-  font-weight: 500;
+  font-weight: 300;
   text-transform: uppercase;
   color: #FFF;
 }
 section {
-  padding: 5rem 0;
+  padding: 6rem 0;
 }
 .chart {
-  padding: 1rem 0;
+  padding: 2rem 0;
 }
 .text-left {
   text-align: left;
@@ -84,4 +85,7 @@ section {
 .cp_tooltip_icon:hover .cp_tooltiptext_icon {
   visibility: visible;
   opacity: 1;
+}
+.logo:hover {
+  opacity: 0.7;
 }
